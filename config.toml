@@ -1,0 +1,27 @@
+base_url = "https://kristjanmaalt.com"
+title = "Kristjan Maalt"
+default_language = "en"
+description = """
+Hi, I’m Kristjan. I research data protection by design, consent management, and privacy-preserving infrastructures.
+"""
+theme = "archie-zola"
+
+[extra]
+mode = "toggle"
+subtitle = "Researcher in privacy, data protection, and digital infrastructures"
+copyright = "Kristjan Maalt"
+social = []
+
+[[extra.translations.en]]
+show_more = "Read more ⟶"
+previous_page = "← Previous"
+next_page = "Next →"
+posted_on = "on"
+posted_by = "Published by"
+read_time = "minute read"
+all_tags = "All tags"
+menus = [
+    { name = "About", url = "/" },
+    { name = "Writings", url = "/posts" },
+    { name = "Talks", url = "/talks" },
+]
