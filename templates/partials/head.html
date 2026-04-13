@@ -1,0 +1,31 @@
+<header>
+    <div class="main" id="main_title">
+        <a href={{ config.base_url }}>{{ config.title }}</a>
+    </div>
+
+    <nav>
+        {% set path = current_path | default(value="/") %}
+        {% for menu in config.extra.translations[lang][0].menus %}
+            {% if menu.url == "/" %}
+                {% set is_active = path == "/" %}
+            {% else %}
+                {% set prefix = path | truncate(length=menu.url | length, end="") %}
+                {% set is_active = prefix == menu.url %}
+            {% endif %}
+            <a href={{ menu.url }} class="{% if is_active %}active{% endif %}">{{ menu.name }}</a>
+        {% endfor %}
+
+        {% if config.extra.translations.languages %}
+            |
+
+            {% for language in config.extra.translations.languages %}
+                <a href={{ language.url }}>{{ language.name }}</a>
+            {% endfor %}
+        {% endif %}
+
+        {% if config.extra.mode == "toggle" %}
+            | <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+            <script src={{ get_url(path="js/themetoggle.js") }}></script>
+        {% endif %}
+    </nav>
+</header>
